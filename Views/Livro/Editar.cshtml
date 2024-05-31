@@ -1,0 +1,46 @@
+﻿@using PROJECT_GESTOR_V3.Enums
+@model PROJECT_GESTOR_V3.Models.LivroModel
+
+@{
+    ViewData["Title"] = "Editar livro";
+}
+
+<div class="texto-cabecalho-criar" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); max-width: contain; font-size: 15px; color: blue">
+    <h1>@ViewData["Title"]</h1>
+</div>
+
+<div class="container mt-5">
+    <form asp-controller="Livro" asp-action="Alterar" method="post">
+        <div class="form-group">
+            <label for="titulo">Título:</label>
+            <input type="text" asp-for="Titulo" class="form-control" id="titulo" placeholder="Infome o título">
+        </div>
+        <div class="form-group">
+            <label for="titulo">Autor</label>
+            <input type="text" asp-for="Autor" class="form-control" id="titulo" placeholder="Infome o autor">
+        </div>
+        <div class="form-group">
+            <label for="genero">Genero:</label>
+            <select asp-for="Genero" class="form-control" id="situacao">
+                <option value="">Selecione</option>
+                <option value="@GeneroTipo.Autoajuda">Autoajuda</option>
+                <option value="@GeneroTipo.Biografia">Biografia</option>
+                <option value="@GeneroTipo.Conto">Conto</option>
+                <option value="@GeneroTipo.Distopia">Distopia</option>
+                <option value="@GeneroTipo.Ficção">Ficção</option>
+                <option value="@GeneroTipo.Horror">Horror</option>
+                <option value="@GeneroTipo.Romance">Romance</option>
+                <option value="@GeneroTipo.Religiao">Religiao</option>
+                <option value="@GeneroTipo.Thriller_e_Suspense">Thriller e Suspense</option>
+                <option value="@GeneroTipo.Tecnologia_e_Ciencia">Tecnologia e Ciência</option>
+                <option value="@GeneroTipo.Quadrinhos">Quadrinhos</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="datadevencimento">Data de Cadastro</label>
+            <input type="date" asp-for="Data_de_Cadastro" class="form-control" id="dataCadastro">
+        </div>
+        <button type="submit" class="btn btn-primary">Alterar</button>
+        <a asp-controller="Livro" asp-action="Index" type="submit" class="btn btn-secondary">Voltar</a>
+    </form>
+</div>

@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Listagem de Livros";
+}
+
+<div class="text-center" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); max-width: contain">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p style="font-size: 35px"><ion-icon name="book-outline"></ion-icon></p>
+</div>
+
+<div>
+    <a asp-action="Criar" asp-controller="Livro" role="button" class="btn btn-success">Adicionar novo livro</a>
+</div>
+<br />
+<br />
+
+<table class="table table-hover" id="table-livros">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Título</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Autor</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Genero</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Data de Cadastro</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); padding-left: 60px; ">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>A Dança dos Dragões</td>
+            <td>George Martin</td>
+            <td>Romance</td>
+            <td>30/05/2024</td>
+            <td>
+                <a role="button" class="btn btn-primary" asp-route-id="" asp-controller="Livro" asp-action="Editar">Editar</a>
+                <a role="button" class="btn btn-danger" asp-route-id="" asp-controller="Livro" asp-action="ApagarConfirmacao">Apagar</a>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>O Festim dos Corvos</td>
+            <td>George Martin</td>
+            <td>Romance</td>
+            <td>30/05/2024</td>
+            <td>
+                <a role="button" class="btn btn-primary" asp-route-id="" asp-controller="Livro" asp-action="Editar">Editar</a>
+                <a role="button" class="btn btn-danger" asp-route-id="" asp-controller="Livro" asp-action="ApagarConfirmacao">Apagar</a>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>A Tormenta das Espadas</td>
+            <td>George Martin</td>
+            <td>Romance</td>
+            <td>30/05/2024</td>
+            <td>
+                <a role="button" class="btn btn-primary" asp-route-id="" asp-controller="Livro" asp-action="Editar">Editar</a>
+                <a role="button" class="btn btn-danger" asp-route-id="" asp-controller="Livro" asp-action="ApagarConfirmacao">Apagar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
