@@ -29,5 +29,10 @@ namespace PROJECT_GESTOR_V3.Controllers
             return View();
         }
 
+        public IActionResult Apagar()
+        {
+            return View();
+        }
+
     }
 }
