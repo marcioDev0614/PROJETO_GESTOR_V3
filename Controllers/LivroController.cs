@@ -1,12 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PROJECT_GESTOR_V3.Repositorio;
+using PROJECT_GESTOR_V3.Models;
+using System;
 
 namespace PROJECT_GESTOR_V3.Controllers
 {
     public class LivroController : Controller
     {
+        private readonly ILivroRepositorio _livroRepositorio;
+
+        public LivroController(ILivroRepositorio livroRepositorio)
+        {
+            _livroRepositorio = livroRepositorio;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var list = _livroRepositorio.BuscarTodos();
+
+            return View(list);
         }
 
         public IActionResult Criar()
@@ -14,24 +26,75 @@ namespace PROJECT_GESTOR_V3.Controllers
             return View();
         }
 
-        public IActionResult Editar()
+        [HttpPost]
+        public IActionResult Criar(LivroModel livroModel)
         {
-            return View();
+            if(ModelState.IsValid)
+            {
+                _livroRepositorio.Adicionar(livroModel);
+                return RedirectToAction("Index");
+            }
+            
+            return View(livroModel);
+      
         }
 
-        public IActionResult Alterar()
+        public IActionResult Editar(int id)
         {
-            return View();
+            LivroModel livroModel = _livroRepositorio.ListarPorId(id);
+            return View(livroModel);
         }
 
-        public IActionResult ApagarConfirmacao()
+        [HttpPost]
+        public IActionResult Alterar(LivroModel livroModel)
         {
-            return View();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _livroRepositorio.Atualizar(livroModel);
+                    return RedirectToAction("Index");
+                }
+
+                return View("Editar", livroModel);
+            }
+            catch (System.Exception)
+            {
+
+                return RedirectToAction("Index");
+            }
+      
+    }
+        public IActionResult ApagarConfirmacao(int id)
+        {
+            LivroModel livroModel = _livroRepositorio.ListarPorId(id);
+            return View(livroModel);
         }
 
-        public IActionResult Apagar()
+        public IActionResult Apagar(int id)
         {
-            return View();
+            try
+            {
+                bool apagado = _livroRepositorio.Apagar(id);
+
+                if (apagado)
+                {
+                    TempData["MensagemSucesso"] = "Livro removido com sucesso!";
+                }
+                else
+                {
+                    TempData["MensagemErro"] = "Ops! não foi possível apagar o seu livro.";
+                }
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception erro)
+            {
+
+                TempData["MensagemErro"] = $"Ops! não foi possível apagar o seu livro. Detalhe do erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
+
         }
 
     }

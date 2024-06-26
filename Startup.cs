@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PROJECT_GESTOR_V3.Data;
+using PROJECT_GESTOR_V3.Models;
+using PROJECT_GESTOR_V3.Repositorio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +28,8 @@ namespace PROJECT_GESTOR_V3
         {
             services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DataBase")));
             services.AddControllersWithViews();
+            services.AddScoped<ILivroRepositorio, LivroRepositorio>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

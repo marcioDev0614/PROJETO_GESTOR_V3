@@ -22,25 +22,25 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: cadetblue" asp-area="" asp-controller="Home" asp-action="Index">Página Inicial</a>
+                            <a id="estiloNav" class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Página Inicial</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-primary" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: darkblue">Modulos -></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: cadetblue" asp-area="" asp-controller="Livro" asp-action="Index">| Livros |</a>
+                            <a id="estiloNav" class="nav-link text-dark" asp-area="" asp-controller="Livro" asp-action="Index">| Livros |</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: cadetblue">| Tarefas |</a>
+                            <a id="estiloNav" class="nav-link text-dark">| Tarefas |</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: cadetblue">| Finanças |</a>
+                            <a id="estiloNav" class="nav-link text-dark">| Despesas |</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: cadetblue">| Agenda |</a>
+                            <a id="estiloNav" class="nav-link text-dark">| Agenda |</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: cadetblue">| Estudos |</a>
+                            <a id="estiloNav" class="nav-link text-dark">| Estudos |</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-dark" href="#" id="tarefasDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: cadetblue">
@@ -75,3 +75,12 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+<style>
+
+    #estiloNav {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        color: cadetblue;
+    }
+
+</style>

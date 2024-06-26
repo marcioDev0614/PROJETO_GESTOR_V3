@@ -11,6 +11,7 @@
 
 <div class="container mt-5">
     <form asp-controller="Livro" asp-action="Alterar" method="post">
+        <input type="hidden" asp-for="Id" />
         <div class="form-group">
             <label for="titulo">Título:</label>
             <input type="text" asp-for="Titulo" class="form-control" id="titulo" placeholder="Infome o título">

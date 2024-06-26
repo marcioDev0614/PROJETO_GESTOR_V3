@@ -52,3 +52,22 @@ function getDatatable(id) {
         }
     });
 }
+
+// Eventos que monitoram os campos obrigatórios do formulário
+
+//document.addEventListener('DOMContentLoaded', function () {
+//    const situacaoSelect = document.getElementById('situacaoCriar');
+//    const datacadatro = document.getElementById('dataCadastroCriar');
+//    const form = document.getElementById('form');
+
+//    form.addEventListener('submit', function (event) {
+//        if (situacaoSelect.value === "") {
+//            alert('Por favor, selecione um gênero.');
+//            event.preventDefault(); // Impede o envio do formulário
+//        }
+//        if (datacadatro.value === "") {
+//            alert('Por favor, selecione uma data.');
+//            event.preventDefault(); // Impede o envio do formulário
+//        }
+//    });
+//});
