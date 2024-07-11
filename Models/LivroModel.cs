@@ -19,7 +19,6 @@ namespace PROJECT_GESTOR_V3.Models
 
         [Required(ErrorMessage = "Favor informar a data de criação.")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Data_de_Cadastro { get; set; }
     }
 }

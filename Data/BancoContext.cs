@@ -12,5 +12,7 @@ namespace PROJECT_GESTOR_V3.Data
 
         public DbSet<LivroModel> Livros { get; set; }
 
+        public DbSet<UsuarioModel> Usuarios { get; set; }
+
     }
 }

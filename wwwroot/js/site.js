@@ -5,7 +5,7 @@
 
 $(document).ready(function () {
     getDatatable('#table-livros');
-    getDatatable('#table-contas'); // Informar nova lista que monte o datatable.
+    getDatatable('#table-usuarios'); // Informar nova lista que monte o datatable.
 
     $('.btn-total-contatos').click(function () {
         var usuarioId = $(this).attr('usuario-id');
@@ -53,21 +53,16 @@ function getDatatable(id) {
     });
 }
 
-// Eventos que monitoram os campos obrigatórios do formulário
+// Função JavaScript / Jquery que captura o evento do click para fechar a mensagem de forma lenta.
 
-//document.addEventListener('DOMContentLoaded', function () {
-//    const situacaoSelect = document.getElementById('situacaoCriar');
-//    const datacadatro = document.getElementById('dataCadastroCriar');
-//    const form = document.getElementById('form');
+$('#mensagem1').click(function () {
+    $('#mensagem1').hide('hide')
+});
 
-//    form.addEventListener('submit', function (event) {
-//        if (situacaoSelect.value === "") {
-//            alert('Por favor, selecione um gênero.');
-//            event.preventDefault(); // Impede o envio do formulário
-//        }
-//        if (datacadatro.value === "") {
-//            alert('Por favor, selecione uma data.');
-//            event.preventDefault(); // Impede o envio do formulário
-//        }
-//    });
-//});
+$('#mensagem2').click(function () {
+    $('#mensagem2').hide('hide')
+});
+
+$('#mensagem3').click(function () {
+    $('#mensagem3').hide('hide')
+});

@@ -29,13 +29,25 @@ namespace PROJECT_GESTOR_V3.Controllers
         [HttpPost]
         public IActionResult Criar(LivroModel livroModel)
         {
-            if(ModelState.IsValid)
+
+            try
             {
-                _livroRepositorio.Adicionar(livroModel);
+                if (ModelState.IsValid)
+                {
+                    _livroRepositorio.Adicionar(livroModel);
+                    TempData["MensagemSucessoLivro"] = "Livro cadastrado com sucesso!";
+                    return RedirectToAction("Index");
+                }
+
+                return View(livroModel);
+
+            }
+            catch (Exception erro)
+            {
+
+                TempData["MensagemErrolivro"] = $"Ops! não foi possível cadastrar o seu livro. Detalhe do erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
-            
-            return View(livroModel);
       
         }
 
@@ -53,14 +65,16 @@ namespace PROJECT_GESTOR_V3.Controllers
                 if (ModelState.IsValid)
                 {
                     _livroRepositorio.Atualizar(livroModel);
+                    TempData["MensagemSucessoLivro"] = "Livro atualizado com sucesso!";
                     return RedirectToAction("Index");
                 }
 
                 return View("Editar", livroModel);
             }
-            catch (System.Exception)
+            catch (Exception erro)
             {
 
+                TempData["MensagemErrolivro"] = $"Ops! não foi possível atualizar o seu livro. Detalhe do erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
       
@@ -79,11 +93,11 @@ namespace PROJECT_GESTOR_V3.Controllers
 
                 if (apagado)
                 {
-                    TempData["MensagemSucesso"] = "Livro removido com sucesso!";
+                    TempData["MensagemSucessoLivro"] = "Livro removido com sucesso!";
                 }
                 else
                 {
-                    TempData["MensagemErro"] = "Ops! não foi possível apagar o seu livro.";
+                    TempData["MensagemErroLivro"] = "Ops! não foi possível apagar o seu livro.";
                 }
 
                 return RedirectToAction("Index");

@@ -1,0 +1,47 @@
+﻿@using PROJECT_GESTOR_V3.Enums
+@model PROJECT_GESTOR_V3.Models.UsuarioModel
+
+@{
+    ViewData["Title"] = "Editar usuário";
+}
+
+<div class="texto-cabecalho-criar" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); max-width: contain; font-size: 15px; color: blue">
+    <h1>@ViewData["Title"]</h1>
+</div>
+
+<div class="container mt-5">
+    <form asp-controller="Usuario" asp-action="Alterar" method="post" id="form">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" asp-for="Nome" class="form-control" id="nome" placeholder="Infome o nome">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" asp-for="Email" class="form-control" id="email" placeholder="Infome o e-mail">
+        </div>
+        <div class="form-group">
+            <label for="email">Login:</label>
+            <input type="text" asp-for="Login" class="form-control" id="login" placeholder="Infome o login">
+        </div>
+        <div class="form-group">
+            <label for="perfil">Perfil:</label>
+            <select asp-for="Perfil" class="form-control" id="situacaoCriar" >
+                <option value="">Selecione</option>
+                <option value="@PerfilTipo.Administrador">Administrador</option>
+                <option value="@PerfilTipo.Padrao">Padrão</option> 
+            </select>           
+        </div>
+        <button type="submit" class="btn btn-primary">Atualizar</button>
+        <a asp-controller="Usuario" asp-action="Index" type="submit" class="btn btn-secondary">Voltar</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+

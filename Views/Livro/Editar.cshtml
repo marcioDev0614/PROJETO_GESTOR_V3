@@ -5,12 +5,34 @@
     ViewData["Title"] = "Editar livro";
 }
 
+@if (TempData["MensagemSucessoLivro"] != null)
+{
+    <div id="mensagem1" class="alert alert-success text-center" role="alert">
+        @TempData["MensagemSucessoLivro"]
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+}
+
+@if (TempData["MensagemErrolivro"] != null)
+{
+    <div id="mensagem2" class="alert alert-danger text-center" role="alert">
+        @TempData["MensagemErrolivro"]
+        <button id="botao2" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
 <div class="texto-cabecalho-criar" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); max-width: contain; font-size: 15px; color: blue">
     <h1>@ViewData["Title"]</h1>
 </div>
 
 <div class="container mt-5">
     <form asp-controller="Livro" asp-action="Alterar" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
         <input type="hidden" asp-for="Id" />
         <div class="form-group">
             <label for="titulo">Título:</label>
@@ -45,3 +67,10 @@
         <a asp-controller="Livro" asp-action="Index" type="submit" class="btn btn-secondary">Voltar</a>
     </form>
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

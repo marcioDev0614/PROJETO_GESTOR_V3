@@ -14,6 +14,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
+              @*  @await Component.InvokeAsync("Menu")*@
                 <strong><a class="navbar-brand" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);" asp-area="" asp-controller="Home" asp-action="Index">PROJETO_GESTOR_V3</a></strong>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -23,6 +24,12 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a id="estiloNav" class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Página Inicial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="estiloNav" class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">| Usuários |</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="estiloNav" class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">| Sair |</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-primary" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: darkblue">Modulos -></a>

@@ -1,0 +1,51 @@
+﻿@model LoginModel
+
+@{
+    Layout = "_LayoutDeslogado";
+    ViewData["Title"] = "Login";
+}
+
+
+@if (TempData["MensagemErroLogin"] != null)
+{
+    <div id="mensagem3" class="alert alert-danger text-center" role="alert">
+        @TempData["MensagemErroLogin"]
+        <button id="botao2" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+    <div>
+        <div class="text-center">
+            <h1 style="color: orangered; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);" class="display-4"><strong>@ViewData["Title"]</strong></h1>
+            <p style="font-size: 35px"><ion-icon name="log-in-outline"></ion-icon></p>
+        </div>
+
+        <form asp-controller="Login" asp-action="Entrar" method="post">
+            <div class="mb-3">
+                <label for="login" class="form-label">Login</label>
+                <input type="text" asp-for="Login" class="form-control" id="login">
+                @Html.ValidationMessageFor(x => x.Login)
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" asp-for="Senha" class="form-control" id="senha">
+                @Html.ValidationMessageFor(x => x.Senha)
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+        </form>
+    </div>
+
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+<style>
+
+    .field-validation-error {
+        color: red
+    }
+
+</style>
+
+
