@@ -2,9 +2,11 @@
 using PROJECT_GESTOR_V3.Repositorio;
 using PROJECT_GESTOR_V3.Models;
 using System;
+using PROJECT_GESTOR_V3.Filters;
 
 namespace PROJECT_GESTOR_V3.Controllers
 {
+    [PaginaParaUsuarioLogado]
     public class LivroController : Controller
     {
         private readonly ILivroRepositorio _livroRepositorio;

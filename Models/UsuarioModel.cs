@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using PROJECT_GESTOR_V3.Enums;
+using PROJECT_GESTOR_V3.Helper;
 
 namespace PROJECT_GESTOR_V3.Models
 {
@@ -31,7 +32,11 @@ namespace PROJECT_GESTOR_V3.Models
 
         public bool SenhaValida(string senha)
         {
-            return Senha == senha;
+            return Senha == senha.GerarHash();
+        }
+        public void SetSenhaHash()
+        {
+            Senha = Senha.GerarHash();
         }
     }
 }

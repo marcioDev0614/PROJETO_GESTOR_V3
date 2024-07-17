@@ -19,6 +19,7 @@ namespace PROJECT_GESTOR_V3.Repositorio
         public UsuarioModel Adicionar(UsuarioModel usuarioModel)
         {
             usuarioModel.DataCadastro = DateTime.Now;
+            usuarioModel.SetSenhaHash();
             _bancoContext.Usuarios.Add(usuarioModel);
             _bancoContext.SaveChanges();
             return usuarioModel;

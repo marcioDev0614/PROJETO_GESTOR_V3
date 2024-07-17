@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PROJECT_GESTOR_V3.Filters;
 using PROJECT_GESTOR_V3.Models;
 using PROJECT_GESTOR_V3.Repositorio;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 
 namespace PROJECT_GESTOR_V3.Controllers
 {
+    [PaginaRestritaSomenteAdministrador]
     public class UsuarioController : Controller
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;
