@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PROJECT_GESTOR_V3.Data;
+using PROJECT_GESTOR_V3.Filters;
 using PROJECT_GESTOR_V3.Helper;
 using PROJECT_GESTOR_V3.Models;
 using PROJECT_GESTOR_V3.Repositorio;
@@ -37,6 +38,7 @@ namespace PROJECT_GESTOR_V3
 
             // Injeção de dependencia das Interfaces
             services.AddScoped<ISessao, Sessao>();
+            services.AddScoped<IEmail, Email>();
             services.AddScoped<ILivroRepositorio, LivroRepositorio>();
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 

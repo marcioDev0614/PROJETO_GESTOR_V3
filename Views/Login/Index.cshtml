@@ -6,14 +6,25 @@
 }
 
 
-@if (TempData["MensagemErroLogin"] != null)
+@if (TempData["MensagemErro"] != null)
 {
     <div id="mensagem3" class="alert alert-danger text-center" role="alert">
-        @TempData["MensagemErroLogin"]
+        @TempData["MensagemErro"]
         <button id="botao2" type="button" class="close" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+}
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div id="mensagem1" class="alert alert-success text-center" role="alert">
+        @TempData["MensagemSucesso"]
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
 }
 
     <div>
@@ -33,6 +44,11 @@
                 <input type="password" asp-for="Senha" class="form-control" id="senha">
                 @Html.ValidationMessageFor(x => x.Senha)
             </div>
+
+            <p class="mb-4 text-sm-center mx-auto">
+                Esqueceu sua senha?
+                <a asp-action="RedefinirSenha" asp-controller="Login" class="text-primary text-gradient font-weight-bold">Redefinir minha senha</a>
+            </p>
             <button type="submit" class="btn btn-primary btn-block">Entrar</button>
         </form>
     </div>

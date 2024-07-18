@@ -6,6 +6,8 @@ namespace PROJECT_GESTOR_V3.Repositorio
     public interface IUsuarioRepositorio
     {
         UsuarioModel BuscarPorLogin(string login);
+
+        UsuarioModel BuscarPorEmailELogin(string login, string email);
         
         UsuarioModel Adicionar(UsuarioModel usuarioModel);
 
@@ -14,6 +16,8 @@ namespace PROJECT_GESTOR_V3.Repositorio
         List<UsuarioModel> BuscarTodos();
 
         UsuarioModel Atualizar(UsuarioModel usuarioModel);
+
+        UsuarioModel AlterarSenha(AlterarSenhaModel alterarSenhaModel);
 
         bool Apagar(int id);
 

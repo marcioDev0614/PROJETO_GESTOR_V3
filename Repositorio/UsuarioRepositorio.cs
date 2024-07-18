@@ -25,6 +25,8 @@ namespace PROJECT_GESTOR_V3.Repositorio
             return usuarioModel;
         }
 
+
+
         public bool Apagar(int id)
         {
             UsuarioModel usuarioDB = ListarPorId(id);
@@ -55,6 +57,30 @@ namespace PROJECT_GESTOR_V3.Repositorio
 
             return usuarioDB;
 
+        }
+
+        public UsuarioModel AlterarSenha(AlterarSenhaModel alterarSenhaModel)
+        {
+            UsuarioModel usuarioDB = ListarPorId(alterarSenhaModel.Id);
+
+            if (usuarioDB == null) throw new SystemException("Houve um erro na atualização da senha, usuário não encontrado!");
+
+            if (!usuarioDB.SenhaValida(alterarSenhaModel.SenhaAtual)) throw new SystemException("Senha atual não confere. Por favor, tente novamente.");
+
+            if (usuarioDB.SenhaValida(alterarSenhaModel.NovaSenha)) throw new SystemException("Nova senha deve ser diferente da senha atual. Por favor, tente novamente.");
+
+            usuarioDB.SetNovaSenha(alterarSenhaModel.NovaSenha);
+            usuarioDB.DataAtualizacao = DateTime.Now;
+
+            _bancoContext.Usuarios.Update(usuarioDB);
+            _bancoContext.SaveChanges();
+            return usuarioDB;
+
+        }
+
+        public UsuarioModel BuscarPorEmailELogin(string login, string email)
+        {
+            return _bancoContext.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper() && x.Email.ToUpper() == email.ToUpper());
         }
 
         public UsuarioModel BuscarPorLogin(string login)

@@ -1,0 +1,69 @@
+﻿@using PROJECT_GESTOR_V3.Enums
+@model PROJECT_GESTOR_V3.Models.AlterarSenhaModel
+
+@{
+    ViewData["Title"] = "Alterar Senha";
+}
+
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div id="mensagem1" class="alert alert-success text-center" role="alert">
+        @TempData["MensagemSucesso"]
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div id="mensagem2" class="alert alert-danger text-center" role="alert">
+        @TempData["MensagemErro"]
+        <button id="botao2" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<div class="text-center">
+    <h1 style="color: orangered; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);" class="display-4"><strong>@ViewData["Title"]</strong></h1>
+    <p style="font-size: 35px"><ion-icon name="swap-horizontal-outline"></ion-icon></p>
+</div>
+
+<div class="container mt-5">
+    <form asp-controller="AlterarSenha" asp-action="Alterar" method="post" id="form">
+        <div class="form-group">
+            <label for="senhaAtual">Senha Atual</label>
+            <input type="password" asp-for="SenhaAtual" class="form-control" id="senhaAtual" placeholder="Digite a senha atual do usuário">
+            @Html.ValidationMessageFor(x => x.SenhaAtual)
+        </div>
+                <div class="form-group">
+            <label for="novaSenha">Nova Senha</label>
+            <input type="password" asp-for="NovaSenha" class="form-control" id="novaSenha" placeholder="Digite a nova senha do usuário">
+            @Html.ValidationMessageFor(x => x.NovaSenha)
+        </div>
+        <div class="form-group">
+            <label for="confirmarNovaSenha">Confirmar Nova Senha</label>
+            <input type="password" asp-for="ConfirmarNovaSenha" class="form-control" id="confirmarNovaSenha" placeholder="Digite a confirmação da nova senha do usuário">
+            @Html.ValidationMessageFor(x => x.ConfirmarNovaSenha)
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+        <a asp-controller="Home" asp-action="Index" type="submit" class="btn btn-secondary btn-block">Voltar</a>
+    </form>
+</div>
+
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+<style>
+
+    .field-validation-error {
+        color: red
+    }
+
+</style>
+
+
+
