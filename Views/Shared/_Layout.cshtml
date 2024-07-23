@@ -25,34 +25,20 @@
                             <a id="estiloNav" class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Página Inicial</a>
                         </li>
                         <li class="nav-item">
-                            <a id="estiloNav" class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">| Usuários |</a>
-                        </li>
-                        <li class="nav-item">
                             <a id="estiloNav" class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">| Sair |</a>
                         </li>
                         <li class="nav-item">
                             <a id="estiloNav" class="nav-link text-dark" asp-area="" asp-controller="AlterarSenha" asp-action="Index">| Alterar Senha |</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-primary" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: darkblue">Modulos -></a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="estiloNav" class="nav-link text-dark" asp-area="" asp-controller="Livro" asp-action="Index">| Livros |</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="estiloNav" class="nav-link text-dark">| Tarefas |</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="estiloNav" class="nav-link text-dark">| Despesas |</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-dark" href="#" id="tarefasDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: cadetblue">
-                                | Links |
+                                Modulos
                             </a>
                             <div class="dropdown-menu" aria-labelledby="tarefasDropdown">
-                                <a class="dropdown-item" href="#">Tarefa 1</a>
-                                <a class="dropdown-item" href="#">Tarefa 2</a>
-                                <a class="dropdown-item" href="#">Tarefa 3</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Livro" asp-action="Index">Livros</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Usuario" asp-action="Index">Usuários</a>
+                                <a class="dropdown-item">Tarefas</a>
+                                <a class="dropdown-item">Despesas</a>
                             </div>
                         </li>
                     </ul>

@@ -402,3 +402,4 @@ E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\Razor\
 E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\Razor\Views\Restrito\Index.cshtml.g.cs
 E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\Razor\Views\Login\RedefinirSenha.cshtml.g.cs
 E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\Razor\Views\AlterarSenha\Index.cshtml.g.cs
+E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\Razor\Views\Shared\_Carousel.cshtml.g.cs

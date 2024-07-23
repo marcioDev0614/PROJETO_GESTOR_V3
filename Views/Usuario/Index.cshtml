@@ -42,7 +42,6 @@
 <table class="table table-hover" id="table-usuarios">
     <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Nome</th>
             <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Login</th>
             <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Email</th>
@@ -57,7 +56,6 @@
             @foreach(UsuarioModel usuario in Model)
             {
                 <tr>
-                    <th scope="row">@usuario.Id</th>
                     <td>@usuario.Nome</td>
                     <td>@usuario.Login</td>
                     <td>@usuario.Email</td>

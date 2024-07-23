@@ -14,5 +14,9 @@ namespace PROJECT_GESTOR_V3.Data
 
         public DbSet<UsuarioModel> Usuarios { get; set; }
 
+        public DbSet<DespesaModel> Despesas { get; set; }
+
+        public DbSet<DespesaTipoModel> DespesaTipos { get; set; }
+
     }
 }

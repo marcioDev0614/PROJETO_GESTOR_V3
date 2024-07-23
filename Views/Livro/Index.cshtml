@@ -42,7 +42,6 @@
 <table class="table table-hover" id="table-livros">
     <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Título</th>
             <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Autor</th>
             <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Genero</th>
@@ -56,7 +55,6 @@
             @foreach(LivroModel livro in Model)
             {
                 <tr>
-                    <th scope="row">@livro.Id</th>
                     <td>@livro.Titulo</td>
                     <td>@livro.Autor</td>
                     <td>@livro.Genero</td>
