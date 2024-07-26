@@ -1,0 +1,68 @@
+﻿@using PROJECT_GESTOR_V3.Enums
+@model PROJECT_GESTOR_V3.Models.DespesaModel
+
+@{
+    ViewData["Title"] = "Editar despesa";
+}
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div id="mensagem1" class="alert alert-success text-center" role="alert">
+        @TempData["MensagemSucesso"]
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+}
+
+@if (TempData["MensagemErrolivro"] != null)
+{
+    <div id="mensagem2" class="alert alert-danger text-center" role="alert">
+        @TempData["MensagemErro"]
+        <button id="botao2" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<div class="texto-cabecalho-criar" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); max-width: contain; font-size: 15px; color: blue">
+    <h1>@ViewData["Title"]</h1>
+</div>
+
+<div class="container mt-5">
+    <form asp-controller="Despesa" asp-action="Alterar" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label for="titulo">Título:</label>
+            <input type="text" asp-for="Titulo" class="form-control" id="titulo" placeholder="Infome o título">
+        </div>
+        <div class="form-group">
+            <label for="titulo">Valor</label>
+            <input type="number" asp-for="Valor" class="form-control" id="titulo" placeholder="Infome o valor">
+        </div>
+        <div class="form-group">
+            <label for="genero">Situação:</label>
+            <select asp-for="Situacao" class="form-control" id="situacao">
+                <option value="">Selecione</option>
+                <option value="@SituacaoTipo.Pago">Pago</option>
+                <option value="@SituacaoTipo.A_Pagar">A Pagar</option>
+                <option value="@SituacaoTipo.Pendente">Pendênte</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="datadevencimento">Data de Vencimento</label>
+            <input type="date" asp-for="DataVencimento" class="form-control" id="dataCadastro">
+        </div>
+        <button type="submit" class="btn btn-primary">Alterar</button>
+        <a asp-controller="Despesa" asp-action="Index" type="submit" class="btn btn-secondary">Voltar</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

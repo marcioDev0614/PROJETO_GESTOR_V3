@@ -21,9 +21,5 @@ namespace PROJECT_GESTOR_V3.Models
         public DateTime? DataCadastro { get; set; }
         public SituacaoTipo Situacao { get; set; }
 
-        public DespesaTipoModel Despesas { get; set; }
-
-
-
     }
 }

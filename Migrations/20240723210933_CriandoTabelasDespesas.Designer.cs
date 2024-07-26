@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PROJECT_GESTOR_V3.Data;
 
 namespace PROJECT_GESTOR_V3.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    partial class BancoContextModelSnapshot : ModelSnapshot
+    [Migration("20240723210933_CriandoTabelasDespesas")]
+    partial class CriandoTabelasDespesas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,6 +34,9 @@ namespace PROJECT_GESTOR_V3.Migrations
                     b.Property<DateTime>("DataVencimento")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("DespesasId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Situacao")
                         .HasColumnType("int");
 
@@ -45,7 +50,31 @@ namespace PROJECT_GESTOR_V3.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DespesasId");
+
                     b.ToTable("Despesas");
+                });
+
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.DespesaTipoModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("DespesaNome")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DespesaTipos");
                 });
 
             modelBuilder.Entity("PROJECT_GESTOR_V3.Models.LivroModel", b =>
@@ -109,6 +138,20 @@ namespace PROJECT_GESTOR_V3.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.DespesaModel", b =>
+                {
+                    b.HasOne("PROJECT_GESTOR_V3.Models.DespesaTipoModel", "Despesas")
+                        .WithMany("Despesas")
+                        .HasForeignKey("DespesasId");
+
+                    b.Navigation("Despesas");
+                });
+
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.DespesaTipoModel", b =>
+                {
+                    b.Navigation("Despesas");
                 });
 #pragma warning restore 612, 618
         }

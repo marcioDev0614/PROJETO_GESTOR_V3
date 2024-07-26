@@ -1,0 +1,73 @@
+﻿@model List<DespesaModel>
+
+@{
+    ViewData["Title"] = "Listagem de Despesas";
+}
+
+
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div id="mensagem1" class="alert alert-success text-center" role="alert">
+        @TempData["MensagemSucesso"]
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div id="mensagem2" class="alert alert-danger text-center" role="alert">
+        @TempData["MensagemErro"]
+        <button id="botao2" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+
+<div class="text-center" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); max-width: contain">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p style="font-size: 35px"><ion-icon name="cash-outline"></ion-icon></p>
+</div>
+
+<div>
+    <a asp-action="Criar" asp-controller="Despesa" role="button" class="btn btn-success">Adicionar nova despesa</a>
+</div>
+<br />
+<br />
+
+<table class="table table-hover" id="table-despesas">
+    <thead>
+        <tr>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Título</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Valor</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Data de Vencimento</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Situacao</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); padding-left: 60px; ">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null && Model.Any())
+        {
+            @foreach (DespesaModel despesa in Model)
+            {
+                <tr>
+                    <td>@despesa.Titulo</td>
+                    <td>@despesa.Valor</td>
+                    <td>@despesa.DataVencimento</td>
+                    <td>@despesa.Situacao</td>
+                    @*<td>@despesa.Despesas.DespesaNome</td>*@
+                <td>
+                        <a role="button" class="btn btn-warning" asp-route-id="@despesa.Id" asp-controller="Despesa" asp-action="Editar">Editar</a>
+                        <a role="button" class="btn btn-danger" asp-route-id="@despesa.Id" asp-controller="Despesa" asp-action="ApagarConfirmacao">Apagar</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

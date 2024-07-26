@@ -41,6 +41,8 @@ namespace PROJECT_GESTOR_V3
             services.AddScoped<IEmail, Email>();
             services.AddScoped<ILivroRepositorio, LivroRepositorio>();
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+            services.AddScoped<IDespesaRepositorio, DespesaRepositorio>();
+
 
             // Serviço de cookies relacionado a sessão do usuário
             services.AddSession(o =>

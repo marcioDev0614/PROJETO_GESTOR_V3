@@ -1,0 +1,12 @@
+﻿@model DespesaModel
+
+@{
+    ViewData["Title"] = "Confirmar remoção";
+}
+
+
+<div style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); max-width: contain; font-size: 30px">
+    <p style="color: darkred">Deseja realmente apagar a despesa: (@Model.Titulo)?</p>
+</div>
+<a asp-controller="Despesa" asp-action="Apagar" asp-route-id="@Model.Id" type="submit" class="btn btn-outline-danger">Confirma exclusão</a>
+<a asp-controller="Despesa" asp-action="Index" type="submit" class="btn btn-secondary">Cancelar exclusão</a>
