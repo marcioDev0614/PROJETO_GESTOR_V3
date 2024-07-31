@@ -37,7 +37,11 @@
     <a asp-action="Criar" asp-controller="Despesa" role="button" class="btn btn-success">Adicionar nova despesa</a>
 </div>
 <br />
-<br />
+<div>
+    <h2></h2>
+    <p style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Á pagar R$: @ViewBag.TotalDespesas</p>
+    <p style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Pendente R$: @ViewBag.TotalDespesasPago</p>
+</div>
 
 <table class="table table-hover" id="table-despesas">
     <thead>
@@ -56,7 +60,7 @@
             {
                 <tr>
                     <td>@despesa.Titulo</td>
-                    <td>@despesa.Valor</td>
+                    <td>@despesa.Valor.ToString("c")</td>
                     <td>@despesa.DataVencimento</td>
                     <td>@despesa.Situacao</td>
                     @*<td>@despesa.Despesas.DespesaNome</td>*@
@@ -66,7 +70,7 @@
                     </td>
                 </tr>
             }
-        }
+        }      
     </tbody>
 </table>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

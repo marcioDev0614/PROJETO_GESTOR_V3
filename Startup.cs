@@ -42,9 +42,12 @@ namespace PROJECT_GESTOR_V3
             services.AddScoped<ILivroRepositorio, LivroRepositorio>();
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
             services.AddScoped<IDespesaRepositorio, DespesaRepositorio>();
+            services.AddScoped<IFabricanteRepositorio, FabricanteRepositorio>();
+            services.AddScoped<IJogoRepositorio, JogoRepositorio>();
 
 
             // Serviço de cookies relacionado a sessão do usuário
+            services.AddMemoryCache();
             services.AddSession(o =>
             {
                 o.Cookie.HttpOnly = true;

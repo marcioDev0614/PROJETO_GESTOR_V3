@@ -16,6 +16,10 @@ namespace PROJECT_GESTOR_V3.Controllers
 
         public IActionResult Index()
         {
+            var totalDespesasApagar = _despesaRepositorio.CalcularTotalDespesasApagar();
+            var totalDespesasPago = _despesaRepositorio.CalcularTotalDespesasPago();
+            ViewBag.TotalDespesas = totalDespesasApagar;
+            ViewBag.TotalDespesasPago = totalDespesasPago;
             var list = _despesaRepositorio.BuscarTodos();
 
             return View(list);

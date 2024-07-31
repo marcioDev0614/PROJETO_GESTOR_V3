@@ -9,6 +9,10 @@ namespace PROJECT_GESTOR_V3.Repositorio
 
         DespesaModel BuscarPorId(int id);
 
+        public decimal CalcularTotalDespesasApagar();
+
+        public decimal CalcularTotalDespesasPago();
+
         DespesaModel Adicionar(DespesaModel despesaModel);
 
         DespesaModel Atualizar(DespesaModel despesaModel);

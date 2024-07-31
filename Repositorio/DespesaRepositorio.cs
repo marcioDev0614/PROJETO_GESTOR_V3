@@ -4,6 +4,7 @@ using PROJECT_GESTOR_V3.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace PROJECT_GESTOR_V3.Repositorio
 {
@@ -63,6 +64,20 @@ namespace PROJECT_GESTOR_V3.Repositorio
         public List<DespesaModel> BuscarTodos()
         {
             return _bancoContext.Despesas.ToList();
+        }
+
+        public decimal CalcularTotalDespesasApagar()
+        {
+            return _bancoContext.Despesas
+                .Where(c =>c.Situacao == Enums.SituacaoTipo.A_Pagar)
+                .Sum(c => c.Valor);
+        }
+
+        public decimal CalcularTotalDespesasPago()
+        {
+            return _bancoContext.Despesas
+                .Where(c => c.Situacao == Enums.SituacaoTipo.Pendente)
+                .Sum(c => c.Valor);
         }
     }
 }

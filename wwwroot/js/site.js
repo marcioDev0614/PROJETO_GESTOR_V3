@@ -7,6 +7,8 @@ $(document).ready(function () {
     getDatatable('#table-livros');
     getDatatable('#table-usuarios'); // Informar nova lista que monte o datatable.
     getDatatable('#table-despesas');
+    getDatatable('#table-jogos');
+
 
     $('.btn-total-contatos').click(function () {
         var usuarioId = $(this).attr('usuario-id');

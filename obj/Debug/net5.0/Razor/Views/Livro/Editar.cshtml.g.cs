@@ -34,7 +34,7 @@ using PROJECT_GESTOR_V3.Enums;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2c07a27ff1105381117110ee5473f65fcc6ce66d", @"/Views/Livro/Editar.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc5505191b67a63fcfbbcd7b4c4a88a63e40412e", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d1d8563861b135523eace0f7a45504775c709506", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Livro_Editar : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PROJECT_GESTOR_V3.Models.LivroModel>
     #nullable disable

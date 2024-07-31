@@ -42,7 +42,7 @@ namespace PROJECT_GESTOR_V3.Controllers
         public IActionResult Entrar(LoginModel loginModel)
         {
             try
-            {
+                {
                 if (ModelState.IsValid)
                 {
 

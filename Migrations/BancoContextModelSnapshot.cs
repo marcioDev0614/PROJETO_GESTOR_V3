@@ -48,6 +48,50 @@ namespace PROJECT_GESTOR_V3.Migrations
                     b.ToTable("Despesas");
                 });
 
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.FabricanteModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Descricao")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Fabricantes");
+                });
+
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.JogoModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("DataDeCadastro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Desenvolvedora")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("FabricanteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Plataforma")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Titulo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FabricanteId");
+
+                    b.ToTable("Jogos");
+                });
+
             modelBuilder.Entity("PROJECT_GESTOR_V3.Models.LivroModel", b =>
                 {
                     b.Property<int>("Id")
@@ -109,6 +153,20 @@ namespace PROJECT_GESTOR_V3.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.JogoModel", b =>
+                {
+                    b.HasOne("PROJECT_GESTOR_V3.Models.FabricanteModel", "Fabricante")
+                        .WithMany("Jogos")
+                        .HasForeignKey("FabricanteId");
+
+                    b.Navigation("Fabricante");
+                });
+
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.FabricanteModel", b =>
+                {
+                    b.Navigation("Jogos");
                 });
 #pragma warning restore 612, 618
         }

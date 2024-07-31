@@ -1,0 +1,67 @@
+﻿@model IEnumerable<PROJECT_GESTOR_V3.Models.JogoModel>
+
+
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div id="mensagem1" class="alert alert-success text-center" role="alert">
+        @TempData["MensagemSucesso"]
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div id="mensagem2" class="alert alert-danger text-center" role="alert">
+        @TempData["MensagemErro"]
+        <button id="botao2" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+
+<div class="text-center" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); max-width: contain">
+    <h1 class="display-4">@ViewData["Titulo"]</h1>
+    <p>@ViewData["Data"]</p>
+    <p style="font-size: 35px"><ion-icon name="game-controller-outline"></ion-icon></p>
+</div>
+
+<div>
+    <a asp-action="Criar" asp-controller="Jogo" role="button" class="btn btn-primary">Adicionar novo jogo</a>
+</div>
+<br />
+<br />
+
+<table class="table table-hover" id="table-jogos">
+    <thead>
+        <tr>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Título</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Desenvolvedora</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Data De Cadastro</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Plataforma</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Fabricante</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); padding-left: 60px; ">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (JogoModel jogos in Model)
+            {
+                <tr>
+                    <partial name="_JogoList" for="@jogos"></partial>
+                    <td>
+                        <a role="button" class="btn btn-warning" asp-route-id="@jogos.Id" asp-controller="Jogo" asp-action="Editar">Editar</a>
+                        <a role="button" class="btn btn-danger" asp-route-id="@jogos.Id" asp-controller="Jogo" asp-action="ApagarConfirmacao">Apagar</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
