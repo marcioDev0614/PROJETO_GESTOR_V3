@@ -18,9 +18,7 @@ namespace PROJECT_GESTOR_V3.Data
         // Modulo de Despesas
         public DbSet<DespesaModel> Despesas { get; set; }
 
-        // Modulo de Jogos
-        public DbSet<JogoModel> Jogos { get; set; }
-        public DbSet<FabricanteModel> Fabricantes { get; set; }
+      
 
 
     }
