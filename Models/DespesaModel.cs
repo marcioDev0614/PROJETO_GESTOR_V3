@@ -11,12 +11,13 @@ namespace PROJECT_GESTOR_V3.Models
         [Key]
         public int Id { get; set; }
         [Required(ErrorMessage = "O titulo da despesas deve ser informado")]
-        [StringLength(80, MinimumLength = 10, ErrorMessage = "O {0} deve ter no mínimo {1} e no máximo {2}")]
         public string Titulo { get; set; }
         [Required(ErrorMessage = "Informe o valor da despesa")]
         [Display(Name = "Preço")]
-        [Column(TypeName = "decimal(10,2)")]
+        //[Column(TypeName = "decimal(10,2)")]
+        [DisplayFormat(DataFormatString = "{0:F2}")]
         public decimal Valor { get; set; }
+        [DisplayFormat(DataFormatString = "0:dd/MM/yyyy")]
         public DateTime DataVencimento { get; set; }
         public DateTime? DataCadastro { get; set; }
         public SituacaoTipo Situacao { get; set; }

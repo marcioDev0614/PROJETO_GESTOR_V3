@@ -10,8 +10,8 @@ using PROJECT_GESTOR_V3.Data;
 namespace PROJECT_GESTOR_V3.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20240728155103_PrimeiroInsertTabelaJogos")]
-    partial class PrimeiroInsertTabelaJogos
+    [Migration("20240802192620_ModuloGames2")]
+    partial class ModuloGames2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,35 +50,35 @@ namespace PROJECT_GESTOR_V3.Migrations
                     b.ToTable("Despesas");
                 });
 
-            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.FabricanteModel", b =>
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.FabricaModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Descricao")
+                    b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Fabricantes");
+                    b.ToTable("Fabricas");
                 });
 
-            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.JogoModel", b =>
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.GameModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime?>("DataDeCadastro")
+                    b.Property<DateTime>("DataDeCadastro")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Desenvolvedora")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("FabricanteId")
+                    b.Property<int>("FabricaId")
                         .HasColumnType("int");
 
                     b.Property<int>("Plataforma")
@@ -89,9 +89,9 @@ namespace PROJECT_GESTOR_V3.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FabricanteId");
+                    b.HasIndex("FabricaId");
 
-                    b.ToTable("Jogos");
+                    b.ToTable("Games");
                 });
 
             modelBuilder.Entity("PROJECT_GESTOR_V3.Models.LivroModel", b =>
@@ -157,18 +157,20 @@ namespace PROJECT_GESTOR_V3.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.JogoModel", b =>
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.GameModel", b =>
                 {
-                    b.HasOne("PROJECT_GESTOR_V3.Models.FabricanteModel", "Fabricante")
-                        .WithMany("Jogos")
-                        .HasForeignKey("FabricanteId");
+                    b.HasOne("PROJECT_GESTOR_V3.Models.FabricaModel", "Fabrica")
+                        .WithMany("Games")
+                        .HasForeignKey("FabricaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Fabricante");
+                    b.Navigation("Fabrica");
                 });
 
-            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.FabricanteModel", b =>
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.FabricaModel", b =>
                 {
-                    b.Navigation("Jogos");
+                    b.Navigation("Games");
                 });
 #pragma warning restore 612, 618
         }

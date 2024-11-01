@@ -1,0 +1,51 @@
+﻿@using PROJECT_GESTOR_V3.Enums
+@model PROJECT_GESTOR_V3.ViewModel.GameFormViewModel
+
+@{
+    ViewData["Title"] = "Cadastro de game";
+}
+
+<div class="texto-cabecalho-criar" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); max-width: contain; font-size: 15px; color: blue">
+    <h1>@ViewData["Title"]</h1>
+</div>
+
+<div class="container mt-5">
+    <form asp-controller="Game" asp-action="Create" method="post" id="form">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label for="titulo">Título:</label>
+            <input type="text" asp-for="Game.Titulo" class="form-control" id="titulo" placeholder="Infome o título">
+        </div>
+        <div class="form-group">
+            <label for="titulo">Autor</label>
+            <input type="text" asp-for="Game.Desenvolvedora" class="form-control" id="titulo" placeholder="Infome a desenvolvedora">
+        </div>
+        <div class="form-group">
+            <label for="genero">Plataforma:</label>
+            <select asp-for="Game.Plataforma" class="form-control" id="situacaoCriar">
+                <option value="">Selecione</option>
+                <option value="@PlataformaTipo.PC">PC</option>
+                <option value="@PlataformaTipo.Xbox360">Xbox360</option>
+                <option value="@PlataformaTipo.Xbox360">Xbox360</option>
+                <option value="@PlataformaTipo.PS4">PS4</option>
+
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="dataDeCadastro">Data de Cadastro</label>
+            <input type="date" asp-for="Game.DataDeCadastro" class="form-control" id="dataCadastroCriar">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Fabrica</label>
+            <select asp-for="Game.FabricaId" asp-items="@(new SelectList(Model.Fabricas, "Id", "Nome"))" class="form-control"></select>
+        </div>
+        <button type="submit" class="btn btn-primary">Adicionar</button>
+        <a asp-controller="Game" asp-action="Index" type="submit" class="btn btn-secondary">Voltar</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

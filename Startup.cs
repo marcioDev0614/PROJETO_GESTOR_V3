@@ -8,12 +8,11 @@ using Microsoft.Extensions.Hosting;
 using PROJECT_GESTOR_V3.Data;
 using PROJECT_GESTOR_V3.Filters;
 using PROJECT_GESTOR_V3.Helper;
-using PROJECT_GESTOR_V3.Models;
 using PROJECT_GESTOR_V3.Repositorio;
-using System;
+using PROJECT_GESTOR_V3.Services;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PROJECT_GESTOR_V3
 {
@@ -42,8 +41,10 @@ namespace PROJECT_GESTOR_V3
             services.AddScoped<ILivroRepositorio, LivroRepositorio>();
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
             services.AddScoped<IDespesaRepositorio, DespesaRepositorio>();
-            //services.AddScoped<IFabricanteRepositorio, FabricanteRepositorio>();
-            //services.AddScoped<IJogoRepositorio, JogoRepositorio>();
+
+            // Registrando os serviços
+            services.AddScoped<GameService>();
+            services.AddScoped<FabricaService>();
 
 
             // Serviço de cookies relacionado a sessão do usuário
@@ -59,6 +60,16 @@ namespace PROJECT_GESTOR_V3
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var enBR = new CultureInfo("pt-BR");
+            var localizationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(enBR),
+                SupportedCultures = new List<CultureInfo> { enBR },
+                SupportedUICultures = new List<CultureInfo> { enBR },
+            };
+
+            app.UseRequestLocalization(localizationOptions);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

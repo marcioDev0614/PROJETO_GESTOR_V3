@@ -1,0 +1,72 @@
+﻿@model ICollection<GameModel>
+
+@{
+    ViewData["Title"] = "Listagem de Games";
+}
+
+
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div id="mensagem1" class="alert alert-success text-center" role="alert">
+        @TempData["MensagemSucesso"]
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div id="mensagem2" class="alert alert-danger text-center" role="alert">
+        @TempData["MensagemErro"]
+        <button id="botao2" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+
+<div class="text-center" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); max-width: contain">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p style="font-size: 35px"><ion-icon name="game-controller-outline"></ion-icon></p>
+</div>
+
+<div>
+    <a asp-action="Create" asp-controller="Game" role="button" class="btn btn-success">Adicionar novo game</a>
+</div>
+<br />
+<br />
+
+<table class="table table-hover" id="table-games">
+    <thead>
+        <tr>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Título</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Desenvolvedora</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Data de Cadastro</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Plataforma</th>
+            <th scope="col" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); padding-left: 60px; ">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (GameModel item in Model)
+            {
+                <tr>
+                    <td>@item.Titulo</td>
+                    <td>@item.Desenvolvedora</td>
+                    <td>@item.DataDeCadastro</td>
+                    <td>@item.Plataforma</td>
+                    <td>
+                        <a role="button" class="btn btn-warning" asp-route-id="@item.Id" asp-controller="Game" asp-action="Editar">Editar</a>
+                        <a role="button" class="btn btn-danger" asp-route-id="@item.Id" asp-controller="Game" asp-action="ApagarConfirmacao">Apagar</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

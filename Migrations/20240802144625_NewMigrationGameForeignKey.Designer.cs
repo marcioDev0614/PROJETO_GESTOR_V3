@@ -10,8 +10,8 @@ using PROJECT_GESTOR_V3.Data;
 namespace PROJECT_GESTOR_V3.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20240731223555_RemocaoDoModuloDeJogos")]
-    partial class RemocaoDoModuloDeJogos
+    [Migration("20240802144625_NewMigrationGameForeignKey")]
+    partial class NewMigrationGameForeignKey
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,6 +48,50 @@ namespace PROJECT_GESTOR_V3.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Despesas");
+                });
+
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.Fabrica", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Fabricas");
+                });
+
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.Game", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DataDeCadastro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Desenvolvedora")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FabricaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Plataforma")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Titulo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FabricaId");
+
+                    b.ToTable("Games");
                 });
 
             modelBuilder.Entity("PROJECT_GESTOR_V3.Models.LivroModel", b =>
@@ -111,6 +155,22 @@ namespace PROJECT_GESTOR_V3.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.Game", b =>
+                {
+                    b.HasOne("PROJECT_GESTOR_V3.Models.Fabrica", "Fabrica")
+                        .WithMany("Games")
+                        .HasForeignKey("FabricaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Fabrica");
+                });
+
+            modelBuilder.Entity("PROJECT_GESTOR_V3.Models.Fabrica", b =>
+                {
+                    b.Navigation("Games");
                 });
 #pragma warning restore 612, 618
         }

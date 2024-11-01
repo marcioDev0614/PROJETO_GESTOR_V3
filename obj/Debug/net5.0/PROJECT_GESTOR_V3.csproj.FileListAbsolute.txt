@@ -351,12 +351,6 @@ E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\PROJEC
 E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\PROJECT_GESTOR_V3.genruntimeconfig.cache
 E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\ref\PROJECT_GESTOR_V3.dll
 E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\Razor\Views\Livro\Index.cshtml.g.cs
-E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\staticwebassets\PROJECT_GESTOR_V3.StaticWebAssets.Pack.cache
-E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\staticwebassets\msbuild.PROJECT_GESTOR_V3.Microsoft.AspNetCore.StaticWebAssets.props
-E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\staticwebassets\msbuild.build.PROJECT_GESTOR_V3.props
-E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.PROJECT_GESTOR_V3.props
-E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.PROJECT_GESTOR_V3.props
-E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\refint\PROJECT_GESTOR_V3.dll
 E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\Razor\Views\Livro\Criar.cshtml.g.cs
 E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\Razor\Views\Livro\Editar.cshtml.g.cs
 E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\Razor\Views\Livro\ApagarConfirmacao.cshtml.g.cs
@@ -453,4 +447,7 @@ E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\bin\Debug\net5.0\runtim
 E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\Razor\Views\ContatoEmail\Index.cshtml.g.cs
 E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\Razor\Views\Shared\Components\FabricanteMenu\Default.cshtml.g.cs
-E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\Razor\Views\Fabricante\Index.cshtml.g.cs
+E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\Razor\Views\Game\Index.cshtml.g.cs
+E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\Razor\Views\Game\Create.cshtml.g.cs
+E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\bin\Debug\net5.0\ref\PROJECT_GESTOR_V3.dll
+E:\Project_Gestor_V3\PROJECT_GESTOR_V3\PROJECT_GESTOR_V3\obj\Debug\net5.0\staticwebassets\PROJECT_GESTOR_V3.StaticWebAssets.xml
